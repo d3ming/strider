@@ -393,7 +393,6 @@ app.controller('JobCtrl', ['$scope', '$route', '$location', 'jobs', function ($s
 
     var repoShortName = $scope.repo.short_name;
     var repoOwner = repoShortName.split('/')[0];
-    var repoBranch = repoShortName.split('/')[1];
 
     var gitHubCompareUrl = "https://github.com/" + $scope.repo.short_name + "/compare/paperg:master..." + repoOwner + ":master";
     window.open(gitHubCompareUrl);
