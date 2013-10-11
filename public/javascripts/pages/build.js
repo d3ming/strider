@@ -367,6 +367,16 @@ app.controller('JobCtrl', ['$scope', '$route', '$location', 'jobs', function ($s
   document.addEventListener('keydown', switchBuilds);
 
   // button handlers
+  $scope.startReview = function () {
+    if ($scope.job.status === 'running')
+      return;
+
+    var repoShortName = $scope.repo.short_name;
+    var repoOwner = repoShortName.split('/')[0];
+    var gitHubCompareUrl = "https://github.com/" + $scope.repo.short_name + "/compare/paperg:master..." + repoOwner + ":master";
+    window.open(gitHubCompareUrl);
+  };
+
   $scope.startTest = function () {
     if ($scope.job.status === 'running' ||
         $scope.job.status === 'submitted') return;
