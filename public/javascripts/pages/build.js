@@ -397,14 +397,12 @@ app.controller('JobCtrl', ['$scope', '$route', '$location', 'jobs', function ($s
     };
 
     alert(JSON.stringify($scope.repo));
-    alert($scope.repo.owner);
-    alert($scope.repo.repo_url);
-    alert($scope.repo.display_name);
-    alert($scope.repo.display_url);
-    alert($scope.repo.short_name);
+    var repoShortName = $scope.repo.short_name;
+    var repoOwner = repoShortName.split('/')[0];
+    var repoBranch = repoShortName.split('/')[1];
 
     // TODO: URL encode and other good things
-    var gitHubCompareUrl = "https://github.com/" + $scope.repo_owner + "/" + $scope.repo_name + "/compare/" + $scope.repo_name + ":master..." + $scope.repo_owner + ":master";
+    var gitHubCompareUrl = "https://github.com/" + $scope.repo.short_name + "/compare/paperg:master..." + repoOwner + ":master";
     window.open(gitHubCompareUrl);
   };
 
