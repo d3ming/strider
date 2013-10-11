@@ -390,14 +390,20 @@ app.controller('JobCtrl', ['$scope', '$route', '$location', 'jobs', function ($s
   $scope.startReview = function () {
     if ($scope.job.status === 'running' ||
       $scope.job.status === 'submitted') return;
-    // TODO: URL encode and other good things
     $scope.job = {
       repo_url: $scope.job.repo_url,
       status: 'submitted',
       output: ''
     };
 
-    ////var gitHubCompareUrl = "https://github.com/" + $scope.repo_owner + "/" + $scope.repo_name + "/compare/" + $scope.repo_name + ":master..." + $scope.repo_owner + ":master";
+    alert(JSON.stringify($scope.repo));
+    alert($scope.repo.owner);
+    alert($scope.repo.repo_url);
+    alert($scope.repo.display_name);
+    alert($scope.repo.display_url);
+    alert($scope.repo.short_name);
+
+    // TODO: URL encode and other good things
     var gitHubCompareUrl = "https://github.com/" + $scope.repo_owner + "/" + $scope.repo_name + "/compare/" + $scope.repo_name + ":master..." + $scope.repo_owner + ":master";
     window.open(gitHubCompareUrl);
   };
