@@ -388,7 +388,7 @@ app.controller('JobCtrl', ['$scope', '$route', '$location', 'jobs', function ($s
     };
   };
   $scope.startReview = function () {
-    if ($scope.job.status != 'submitted')
+    if ($scope.job.status === 'running')
       return;
 
     alert(JSON.stringify($scope.repo));
