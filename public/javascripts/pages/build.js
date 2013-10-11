@@ -391,14 +391,15 @@ app.controller('JobCtrl', ['$scope', '$route', '$location', 'jobs', function ($s
     if ($scope.job.status === 'running' ||
       $scope.job.status === 'submitted') return;
     // TODO: URL encode and other good things
-    ////var gitHubCompareUrl = "https://github.com/" + job.repo_owner + "/" + job.repo_name + "/compare/" + job.repo_name + ":master..." + job.repo_owner + ":master";
-    var gitHubCompareUrl = "https://github.com/" + $scope.job.repo_owner + "/" + $scope.job.repo_name + "/compare/" + $scope.job.repo_name + ":master..." + $scope.job.repo_owner + ":master";
-    window.open(gitHubCompareUrl);
     $scope.job = {
       repo_url: $scope.job.repo_url,
       status: 'submitted',
       output: ''
     };
+
+    alert($scope.repo);
+    var gitHubCompareUrl = "https://github.com/" + $scope.job.repo_owner + "/" + $scope.job.repo_name + "/compare/" + $scope.job.repo_name + ":master..." + $scope.job.repo_owner + ":master";
+    window.open(gitHubCompareUrl);
   };
 
   // Socket update stuff

@@ -27,6 +27,9 @@ body {
 #build-page .job-title h3 .test-and-deploy-action {
   color: #2900ff;
 }
+#build-page .job-title h3 .review-or-deploy-action {
+    color: mediumpurple;
+}
 #build-page #build-metadata {
   border-radius: 5px;
   padding: 0 10px;
