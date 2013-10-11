@@ -397,8 +397,8 @@ app.controller('JobCtrl', ['$scope', '$route', '$location', 'jobs', function ($s
       output: ''
     };
 
-    alert($scope.repo);
-    var gitHubCompareUrl = "https://github.com/" + $scope.job.repo_owner + "/" + $scope.job.repo_name + "/compare/" + $scope.job.repo_name + ":master..." + $scope.job.repo_owner + ":master";
+    alert($scope.repo.toJSON());
+    var gitHubCompareUrl = "https://github.com/" + $scope.repo_owner + "/" + $scope.repo_name + "/compare/" + $scope.repo_name + ":master..." + $scope.repo_owner + ":master";
     window.open(gitHubCompareUrl);
   };
 
