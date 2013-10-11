@@ -380,11 +380,16 @@ app.controller('JobCtrl', ['$scope', '$route', '$location', 'jobs', function ($s
   $scope.startDeploy = function () {
     if ($scope.job.status === 'running' ||
         $scope.job.status === 'submitted') return;
-    startJob($scope.job.repo_url, 'TEST_AND_DEPLOY');
+      startJob($scope.job.repo_url, 'TEST_AND_DEPLOY');
     $scope.job = {
       repo_url: $scope.job.repo_url,
       status: 'submitted',
       output: ''
+    };
+  $scope.startReview = function () {
+    if ($scope.job.status === 'running' ||
+      $scope.job.status === 'submitted') return;
+    window.open("http://www.github.com");
     };
   };
 
