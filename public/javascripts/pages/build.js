@@ -377,6 +377,12 @@ app.controller('JobCtrl', ['$scope', '$route', '$location', 'jobs', function ($s
     var repoBranch = "master";  // hopefully we can get this programmatically later
     var gitHubCompareUrl = "https://github.com/" + $scope.repo.short_name + "/compare/paperg:" + repoBranch + "..." + repoOwner + ":" + repoBranch;
     window.open(gitHubCompareUrl, '_blank');
+
+    $scope.job = {
+      repo_url: $scope.job.repo_url,
+      status: 'submitted',
+      output: ''
+    };
   };
 
   $scope.startTest = function () {
