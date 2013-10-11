@@ -388,13 +388,8 @@ app.controller('JobCtrl', ['$scope', '$route', '$location', 'jobs', function ($s
     };
   };
   $scope.startReview = function () {
-    if ($scope.job.status === 'running' ||
-      $scope.job.status === 'submitted') return;
-    $scope.job = {
-      repo_url: $scope.job.repo_url,
-      status: 'submitted',
-      output: ''
-    };
+    if ($scope.job.status != 'submitted')
+      return;
 
     alert(JSON.stringify($scope.repo));
     var repoShortName = $scope.repo.short_name;
