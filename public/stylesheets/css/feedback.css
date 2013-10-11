@@ -6,7 +6,7 @@ need to change the selectors in this CSS file.  */
 	border-right:0;
 }
 #feedback_form {
-	padding:20px;
+	padding:21px;
 	border-radius:8px;
 	-moz-border-radius:8px;
 	width:400px;
