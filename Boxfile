@@ -7,7 +7,8 @@ prototype:
     stack: node
     env: { PORT: 5000 }
     cmd:
-      - node bin/strider addUser --email ci@paperg.com --password paperg123 --admin true
+      - test -f '~/boxinit' && node bin/strider addUser --email ci@paperg.com --password paperg123 --admin true
+      - touch ~/boxinit
     daemon: node bin/strider
 
 dev.paperg.com:
@@ -17,7 +18,7 @@ dev.paperg.com:
   www:
     <<: *www
     env:
-      DB_URI: mongodb://strider:Spr1nt@oceanic.mongohq.com:10085/strider-staging
+      DB_URI: mongodb://strider:Spr1nt@oceanic.mongohq.com:10022/strider-dong
       #
       # This config section must match your github app key and the FQDN of your box.
       # You can ignore this config if you don't care to receive webhook notifications.

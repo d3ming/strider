@@ -31,6 +31,7 @@
     "strider-node": "~0.3.0",
     "strider-webhooks": "~0.1.0",
     "strider-github": "~1.0.0",
+    "strider-github-status": "git+https://github.com/Strider-CD/strider-github-status.git",
     "strider-git": "~0.1.0",
     "connect": "~2.7.3",
     "express": "~3.4.5",
