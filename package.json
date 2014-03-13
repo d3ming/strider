@@ -30,7 +30,6 @@
     "strider-sauce": "~0.6.0",
     "strider-node": "~0.3.0",
     "strider-webhooks": "~0.1.0",
-    "strider-docker-runner": "git+https://github.com/Strider-CD/strider-docker-runner.git",
     "strider-email-notifier": "~0.4.0",
     "strider-github": "git+https://github.com/Strider-CD/strider-github.git",
     "strider-github-status": "git+https://github.com/Strider-CD/strider-github-status.git",
