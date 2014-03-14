@@ -136,7 +136,7 @@ exports.job = function(req, res) {
         .where('finished_timestamp').ne(null)
         .where('repo_url',repo_url)
         .where('type').in(['TEST_ONLY','TEST_AND_DEPLOY'])
-        .limit(20)
+        .limit(100)
         .populate("_owner")
         .exec(this.parallel())
     },
