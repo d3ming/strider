@@ -296,7 +296,6 @@ app.controller('JobCtrl', ['$scope', '$route', '$location', 'jobs', function ($s
       }
 
       if (!job) {
-        console.warn('Failed to get job from cache!');
         return;
       }
       
