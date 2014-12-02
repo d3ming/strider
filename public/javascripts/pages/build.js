@@ -294,6 +294,11 @@ app.controller('JobCtrl', ['$scope', '$route', '$location', 'jobs', function ($s
       if (err) {
         console.error('Failed to fetch job');
       }
+
+      if (!job) {
+        console.warn('Failed to get job from cache!');
+        return;
+      }
       
       // populate branch list
       var branches = jobs.getCache(project).list.map(function(elem) { return elem.commit.branch; }); 
