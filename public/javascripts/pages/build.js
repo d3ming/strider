@@ -305,7 +305,8 @@ app.controller('JobCtrl', ['$scope', '$route', '$location', 'jobs', function ($s
       });
 
       if (branches) {
-        $scope.branches = branches.filter(function(elem, pos, self) { return self.indexOf(elem) === pos; });
+        $scope.branches = branches.filter(function(elem, pos, self) {
+          return elem !== null && self.indexOf(elem) === pos; });
       }
 
       if (jobid && job.id !== jobid) { return; }
