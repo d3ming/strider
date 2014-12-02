@@ -119,6 +119,7 @@ var JobManager = function () {
 
 JobManager.prototype = {
   getCache: function (project) {
+    "use strict";
     if (!this.cache[project]) {
       this.cache[project] = {
         list: [],
@@ -128,6 +129,7 @@ JobManager.prototype = {
     return this.cache[project];
   },
   processJobs: function (project, jobs) {
+    "use strict";
     var cache = this.getCache(project);
     var ids = {};
 
@@ -149,6 +151,7 @@ JobManager.prototype = {
     cache.full = true;
   },
   getOutput: function (project, id, next) {
+    "use strict";
     var cache = this.getCache(project);
     if (cache.ids[id] && cache.ids[id].output && cache.ids[id].status !== 'running') {
       return next(null, cache.ids[id], true);
@@ -179,8 +182,9 @@ JobManager.prototype = {
     return data;
   },
   fetch: function (project, id, next) {
-    var cache = this.getCache(project)
-      , job = cache.ids[id];
+    "use strict";
+    var cache = this.getCache(project),
+      job = cache.ids[id];
 
     // get output
     if ((!job || !job.output) && id) {
@@ -287,8 +291,8 @@ app.controller('JobCtrl', ['$scope', '$route', '$location', 'jobs', function ($s
   var listContainer = document.getElementById('list-of-builds');
   function setJob(project, id) {
     jobs.fetch(project, id, function (err, job, cached) {
-      if (err) {
-        return showError('Failed to fetch job');
+      if (err || !job) {
+        console.logError('Failed to fetch job');
       }
       
       // populate branch list

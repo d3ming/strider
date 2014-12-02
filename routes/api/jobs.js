@@ -28,7 +28,7 @@ var TEST_AND_DEPLOY = "TEST_AND_DEPLOY";
 // user object.
 var deploy_provider_property_map = {
   'heroku':'heroku',
-  'dotcloud':'dotcloud_config',
+  'dotcloud':'dotcloud_config'
 };
 
 /*
@@ -48,13 +48,13 @@ exports.jobs_start = function(req, res) {
   if (url === undefined) {
     return;
   }
-  
+
   // Default job type is TEST_AND_DEPLOY but this can be overridden
   // via the "type" query parameter.
   var job_type = req.param("type");
   var supported_types = [TEST_AND_DEPLOY, TEST_ONLY];
   var found = _.find(supported_types, function(ttype) {
-    return ttype == job_type;
+    return ttype === job_type;
   });
 
   if (found === undefined) {
@@ -90,7 +90,7 @@ exports.jobs_start = function(req, res) {
       project = gh.parse_github_url(repo_config.display_url);
       repo_ssh_url = gh.make_ssh_url(project.org, project.repo);
     }
-    
+
     // create a fake git commit strucutre
     // TODO: would be better to query github and construct a real one
     var github_commit_info = { 'branch': branch };
@@ -127,7 +127,7 @@ exports.raw = function(req, res) {
      .lean(true)
      .exec(function (err, job) {
        if (err || !job) {
-         return err();
+         return err;
        }
        function gotRepo() {
          res.setHeader('Content-type', 'text/plain');
