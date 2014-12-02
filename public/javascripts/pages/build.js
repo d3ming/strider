@@ -291,8 +291,8 @@ app.controller('JobCtrl', ['$scope', '$route', '$location', 'jobs', function ($s
   var listContainer = document.getElementById('list-of-builds');
   function setJob(project, id) {
     jobs.fetch(project, id, function (err, job, cached) {
-      if (err || !job) {
-        console.logError('Failed to fetch job');
+      if (err) {
+        console.error('Failed to fetch job');
       }
       
       // populate branch list
