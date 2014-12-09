@@ -309,7 +309,7 @@ app.controller('JobCtrl', ['$scope', '$route', '$location', 'jobs', function ($s
           return elem !== null && self.indexOf(elem) === pos; });
       }
 
-      if (jobid && job.id !== jobid) { return; }
+      if (jobid && job && job.id !== jobid) { return; }
 
       jobid = job.id;
       $scope.job = job;
